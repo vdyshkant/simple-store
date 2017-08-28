@@ -12,9 +12,9 @@ then open in browser:
 http://localhost:9012/
 ```
 
-## --Testing-- (no app tests, just configuration)
+## ~~Testing~~ (no app tests, just configuration)
 
---To run tests, please configure karma and jasmine for your system and run:--
+~~To run tests, please configure karma and jasmine for your system and run:~~
 ```shell
 karma start dev/karma.config.js
 ```
