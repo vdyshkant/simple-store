@@ -1,0 +1,23 @@
+//- view for homeCtrl
+table.table.table-striped.table-hover
+  thead
+    tr
+      th.text-center Image
+      th.text-center Title
+      th.text-center Description
+      th.text-right Price
+      th
+  tbody
+    tr.item(ng-repeat='item in items track by $index', ng-click='showProduct(item)')
+      td
+        img(ng-src="{{item.image}}", width='70', height='70', alt='')
+      td.text-center {{item.name}}
+      td.text-center {{item.description | json}}
+      td.text-right {{item.price | currency}}
+
+      //- del && edit button in front of every item
+      td.text-center.button-container
+        button.btn.btn-xs.btn-danger(ng-click='$event.stopPropagation(); delete(item)') Delete
+        button.btn.btn-xs.btn-warning(ng-click='$event.stopPropagation(); edit(item)') Edit
+div
+  button.btn.btn-primary(ng-click='create()') Create new product

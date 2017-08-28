@@ -1,0 +1,53 @@
+//- view for editCtrl
+form.panel-body.form-horizontal(ng-controller='editCtrl', name='editForm', novalidate='', ng-submit='saveEdit(currentItem)')
+
+  //- [name]
+  .form-group
+    label.col-sm-2.control-label Title:
+    .col-sm-10
+      input.form-control(name='prodTitle', ng-model='currentItem.name', required='')
+    //- error msg ahead
+    .error.col-sm-10.col-sm-offset-2.text-left.text-danger(ng-show='editForm.prodTitle.$invalid && editForm.prodTitle.$dirty')
+      span(ng-show='editForm.prodTitle.$error.required') Поле не должно быть пустым
+
+
+  //- [price]
+  .form-group
+    label.col-sm-2.control-label Price:
+    .col-sm-10
+      input.form-control(name='prodPrice', ng-model='currentItem.price', required='')
+    //- error msg ahead
+    .error.col-sm-10.col-sm-offset-2.text-left.text-danger(ng-show='editForm.prodPrice.$invalid && editForm.prodPrice.$dirty')
+      span(ng-show='editForm.prodPrice.$error.required') Поле не должно быть пустым
+
+
+  //- [description]
+  .form-group
+    label.col-sm-2.control-label Description:
+    .col-sm-10
+      input.form-control(name='prodDesc', ng-model='currentItem.description', required='')
+    //- error msg ahead
+    .error.col-sm-10.col-sm-offset-2.text-left.text-danger(ng-show='editForm.prodDesc.$invalid && editForm.prodDesc.$dirty')
+      span(ng-show='editForm.prodDesc.$error.required') Поле не должно быть пустым
+
+
+  //- [image]
+  .form-group
+    label.col-sm-2.control-label.select-image(for="edit_avatar") Image select button
+    .col-sm-10
+
+      input#edit_avatar.edit-input.edit-input-file(type='file', onchange='angular.element(this).scope().getImage(this, angular.element(this).scope().imageIsLoaded)', accept='image/png,image/jpeg')
+
+      //- show image if exists
+      .image-preview(ng-if="currentItem.image" style="background-image: url({{currentItem.image}});")
+
+
+    //- error msg ahead
+    .error.col-sm-10.col-sm-offset-2.text-left.text-danger(ng-show='editForm.userThumbnail.$invalid && editForm.userThumbnail.$dirty')
+      span(ng-show='editForm.userThumbnail.$error.required') Поле не должно быть пустым
+
+
+  //- save changes
+  button.btn.btn-primary(type='submit', ng-disabled='!currentItem.image || editForm.$invalid') Save
+  //- discard changes and go to home view
+  button.btn.btn-primary(ng-click='cancelEdit()') Cancel

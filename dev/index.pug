@@ -1,0 +1,33 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title AngularJS
+    link(data-require='bootstrap@3.3.7', data-semver='3.3.7', rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    script.
+      document.write('<base href="' + document.location + '" />');
+    script(data-require='angular.js@1.5.8', data-semver='1.5.8', src='https://code.angularjs.org/1.5.8/angular.js')
+    script(data-require='angular-route@1.5.8', data-semver='1.5.8', src='https://code.angularjs.org/1.5.8/angular-route.js')
+    script(data-require='ngStorage@*', data-semver='0.3.11', src='https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.11/ngStorage.js')
+
+    link(rel='stylesheet', href='styles.css')
+  body(ng-app='storeApp')
+    p#url.text-warning
+      br
+      |       AngularJS products store.
+    script.
+      (function(){
+      var displayUrl = function() {
+      document.getElementById('url').innerHTML = "URL: " + document.location.href;
+      };
+      // Update URL display
+      window.setInterval(displayUrl, 250);
+      })();
+    .container(ng-controller='mainCtrl')
+      .panel.panel-default
+        h3.panel-heading Products store
+        .panel-body
+          div(ng-view='')
+    script(data-require='jquery@*', data-semver='3.1.1', src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+    script(data-require='bootstrap@3.3.7', data-semver='3.3.7', src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    script(src='main.js')

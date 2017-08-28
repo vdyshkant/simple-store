@@ -1,0 +1,31 @@
+Arguments: 
+  /home/uth/.nvm/versions/node/v7.10.0/bin/node /usr/share/yarn/bin/yarn.js add gulp -D
+
+PATH: 
+  /home/uth/.nvm/versions/node/v7.10.0/bin:/usr/games:/home/uth/bin:/home/uth/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+Yarn version: 
+  0.27.5
+
+Node version: 
+  7.10.0
+
+Platform: 
+  linux x64
+
+npm manifest: 
+  
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  SyntaxError: /home/uth/Documents/agInit/package.json: Unexpected end of JSON input
+      at JSON.parse (<anonymous>)
+      at /usr/share/yarn/lib/yarn-cli.js:747:57
+      at Generator.next (<anonymous>)
+      at step (/usr/share/yarn/lib/yarn-cli.js:91:30)
+      at /usr/share/yarn/lib/yarn-cli.js:102:13
